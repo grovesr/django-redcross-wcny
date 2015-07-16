@@ -1,0 +1,10 @@
+.redcross_*_secret*
+*xls*
+Backups/*
+*gz
+*~
+.*~
+tempCommitComments.txt
+static_root/
+*pyc
+*log

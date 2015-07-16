@@ -1,0 +1,90 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'base/js/announcement.js' %}" ></script>
+    <link rel="stylesheet" href="{% static 'base/css/base_style.css' %}" type="text/css" >
+    {% block extra_scripts %} {% endblock extra_scripts %}
+    {% block extrastyle %}{% endblock extrastyle %}
+    <title>{% block title %}Red Cross{% endblock %}</title>
+</head>
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+    <div id="container">
+        <div id="header">
+            <span id="branding">
+            {% block branding %}
+                <a href="{% url 'home' %}"><img src="{% static 'base/img/redcross_wcny.png' %}" width="300px"/></a>
+            {% endblock branding %}
+            </span>
+            <span id="user-management">
+                {% block user-management %}
+                    {% if user.is_authenticated %}
+                         welcome: <strong>{{ user.username }}.</strong>:
+                         {% if user.has_usable_password %}
+                            <a href="{% url 'admin:password_change' %}">Change password / </a>
+                         {% endif %}
+                         <a href="{% url 'logout' %}?next=/">
+                             Logout
+                         </a>
+                     {% else %}
+                        welcome: 
+                        <a href="{% url 'login' %}?next=/">
+                              Login
+                         </a>
+                    {% endif %}
+                {% endblock user-management %}
+            </span>
+        </div>
+        <div id="nav-global">
+            {% block nav-global %}
+                {% include "base/nav_global.html" %}
+            {% endblock nav-global %}
+        </div>
+        <div id="nav-local">
+            {% block nav-local %}
+            {% endblock nav-local %}
+        </div>
+        <div id="breadcrumbs" style="background:url({% static 'base/img/nav-bg-reverse.gif' %})">
+            {% block breadcrumbs %}
+                <a href="{% url 'home' %}">home</a>
+            {% endblock breadcrumbs %}
+        </div>
+        <div id="content" class="{% block coltype %}colM{% endblock %}">
+            <div id="announcement">
+                {% block announcement %}
+                    {% if errorMessage %}
+                        <p id="error-note" class="errornote">
+                            <img class="announcement-close" src="{% static 'base/img/delete.png' %}"></img>
+                            <img class="announcement-icon" src="{% static 'base/img/icon_error.gif' %}"></img>
+                            {{ errorMessage | safe }}
+                        </p>
+                    {%endif %}
+                    {% if warningMessage %}
+                        <p id="warning-note" class="warningnote">
+                            <img class="announcement-close" src="{% static 'base/img/delete.png' %}"></img>
+                            <img class="announcement-icon" src="{% static 'base/img/icon_alert.gif' %}"></img>
+                            {{ warningMessage | safe }}
+                        </p>
+                    {%endif %}
+                    {% if infoMessage %}
+                        <p id="info-note" class="infonote">
+                            <img class="announcement-close" src="{% static 'base/img/delete.png' %}"></img>
+                            <img class="announcement-icon" src="{% static 'base/img/icon_success.gif' %}"></img>
+                            {{ infoMessage | safe }}
+                        </p>
+                    {%endif %}
+                {% endblock announcement %}
+            </div>
+            {% block content %}
+                <h1>Western and  Central New York Region Web apps</h1>
+                <h4>hosted by <a href="http://www.ulstercorps.org">UlsterCorps.org</a></h4>
+            {% endblock content%}
+        </div>
+        <p>
+            <span>site development by Rob Groves, support: <a href="mailto:robert.groves@redcross.org">robert.groves@redcross.org</a></span>
+        </p>
+    </div>
+</body>
+</html>
