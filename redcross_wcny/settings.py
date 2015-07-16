@@ -101,7 +101,7 @@ LOGIN_URL='/accounts/login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/var/www/html/redcross/redcross/static_root'
+STATIC_ROOT = '/var/www/html/arc/redcross_wcny/static_root'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (

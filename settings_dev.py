@@ -16,7 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # JSON secrets module
-with open(os.path.join(BASE_DIR, '.redcross_secret.json')) as f:
+with open(os.path.join(BASE_DIR, '.redcross_wcny_secret.json')) as f:
     secrets=json.loads(f.read())
 
 def get_secret(setting, secrets=secrets):
@@ -33,7 +33,7 @@ def get_secret(setting, secrets=secrets):
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_secret('REDCROSS_SECRET')
+SECRET_KEY = get_secret('REDCROSS_WCNY_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -53,7 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rims',
+    'ims',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,9 +66,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'redcross.urls'
+ROOT_URLCONF = 'redcross_wcny.urls'
 
-WSGI_APPLICATION = 'redcross.wsgi.application'
+WSGI_APPLICATION = 'redcross_wcny.wsgi.application'
 
 
 # Database
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'redcross.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': get_secret('REDCROSS_DB'),
-        'USER': get_secret('REDCROSS_DB_USER'),
-        'PASSWORD': get_secret('REDCROSS_DB_PASS'),
+        'NAME': get_secret('REDCROSS_WCNY_DB'),
+        'USER': get_secret('REDCROSS_WCNY_DB_USER'),
+        'PASSWORD': get_secret('REDCROSS_WCNY_DB_PASS'),
         'HOST': 'localhost',
     }
 }
@@ -89,7 +89,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'US/Eastern'
 
 USE_I18N = True
 
@@ -99,22 +99,20 @@ USE_TZ = True
 
 LOGIN_URL='/accounts/login'
 
-# Paged display defaults
-PAGE_SIZE=17
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/var/www/html/redcross/redcross/static_root'
+STATIC_ROOT = '/var/www/html/arc/redcross_wcny/static_root'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "rims/static"),
+    os.path.join(BASE_DIR, '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static'),
 )
 
-LOG_FILE=os.path.join(BASE_DIR, 'redcross.log')
+LOG_FILE=os.path.join(BASE_DIR, 'redcross_wcny.log')
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
+                 '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',]
 # DJANGO_LOG_LEVEL=DEBUG
 # # Logging setup
 # LOGGING = {
@@ -143,7 +141,7 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 #             'propagate': True,
 #             'level':'DEBUG',
 #         },
-#         'rims': {
+#         'ims': {
 #             'handlers': ['file'],
 #             'level': 'DEBUG',
 #         },
