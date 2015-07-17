@@ -106,7 +106,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static'),
+    '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',
 )
 
 LOG_FILE=os.path.join(BASE_DIR, 'redcross_wcny.log')
