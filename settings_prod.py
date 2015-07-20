@@ -40,8 +40,8 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['arc.ulstercorps.org',
-                 'www.arc.ulstercorps.org',]
+ALLOWED_HOSTS = ['arcwcny.ulstercorps.org',
+                 'www.arcwcny.ulstercorps.org',]
 
 
 # Application definition
@@ -104,18 +104,18 @@ PAGE_SIZE=17
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/home/ulsterc3/public_html/arc/redcross_wcny/static_root'
+STATIC_ROOT = '/home3/ulsterc3/public_html/arc/wcny/static'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    '/home/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/static',
+    '/home3/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/static',
 )
 
 LOG_FILE=os.path.join(BASE_DIR, 'redcross_wcny.log')
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates',
-                '/home/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/templates',)]
+                '/home3/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/templates',)]
 # DJANGO_LOG_LEVEL=DEBUG
 # # Logging setup
 # LOGGING = {
@@ -150,4 +150,3 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates',
 #         },
 #     }
 # }
-
