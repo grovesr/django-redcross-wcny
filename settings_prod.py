@@ -114,8 +114,8 @@ STATICFILES_DIRS = (
 
 LOG_FILE=os.path.join(BASE_DIR, 'redcross_wcny.log')
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates',
-                '/home3/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/templates',)]
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
+                '/home3/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/templates',]
 # DJANGO_LOG_LEVEL=DEBUG
 # # Logging setup
 # LOGGING = {
