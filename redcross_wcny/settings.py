@@ -106,13 +106,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    'ims/static',
+    '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',
 )
 
 LOG_FILE=os.path.join(BASE_DIR, 'redcross_wcny.log')
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
-                 'ims/templates',]
+                 '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',]
 # DJANGO_LOG_LEVEL=DEBUG
 # # Logging setup
 # LOGGING = {
@@ -147,4 +147,3 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
 #         },
 #     }
 # }
-
