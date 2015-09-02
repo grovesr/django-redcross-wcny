@@ -8,8 +8,8 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 import os
 import sys
-sys.path.append("/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages")
-sys.path.append("/home/grovesr/git/redcross-regions/redcross-wcny")
+sys.path.append("/home3/ulsterc3/Rob/PythonDev/.virtualenvs/ims/local/lib/python2.7/site-packages")
+sys.path.append("/home3/ulsterc3/Rob/PythonDev/redcross-regions/redcross-wcny")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "redcross_wcny.settings")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
