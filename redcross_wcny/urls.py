@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from django.conf.urls.static import static
+from django.conf import settings
 from django.contrib import admin
 from . import views
 
@@ -14,3 +16,7 @@ urlpatterns = patterns('',
     url(r'^$', views.home,name='home'),
     url(r'^redcross_help$',views.redcross_help, name='redcross_help')
 )
+
+# serve uploaded media in development only
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
