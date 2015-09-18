@@ -203,3 +203,21 @@ div.faq-list {
 a.pkt-link, .breadcrumb a {
     text-decoration: none;
 }
+
+.error-page {
+	display:block;
+	text-align:center;
+}
+
+.error-page > .error-content {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.error-content td, .error-content th {
+	text-align:left;
+}
+
+#url-text {
+	color:#00f;
+}

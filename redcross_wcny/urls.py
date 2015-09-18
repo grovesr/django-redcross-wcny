@@ -3,12 +3,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from . import views
-
+handler404 = 'views.handler404'
+handler500 = 'views.handler500'
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'redcross.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ims/',include('ims.urls',namespace='ims')),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login',name='login'),

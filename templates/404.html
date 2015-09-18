@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="error-page">
+    <div class="error-content">
+        <table>
+            <tr>
+                <th>
+                <h3>
+                    Oops! It looks like you might be lost.<br />
+                    The requested page<br />
+                    <span id="url-text">"{{ request.build_absolute_uri}}"</span><br />
+                    doesn't exist on this site.<br />
+                    Try one of these links to find what you're looking for
+                </h3>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><a href="{% url 'redcross_help' %}">Help/FAQs</a></li>
+                        <li><a href="{% url 'ims:home' %}">List of recent inventory activity</a></li>
+                        <li><a href="{% url 'ims:sites' %}">List of inventory sites</a></li>
+                        <li><a href="{% url 'ims:products' %}">List of products</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{%endblock content %}
