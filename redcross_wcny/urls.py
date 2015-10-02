@@ -3,8 +3,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from . import views
-handler404 = 'views.handler404'
-handler500 = 'views.handler500'
+
+handler400 = 'ims_dev.views.handler400'
+handler404 = 'ims_dev.views.handler404'
+handler500 = 'ims_dev.views.handler500'
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'redcross.views.home', name='home'),

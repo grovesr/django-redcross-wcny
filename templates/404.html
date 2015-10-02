@@ -1,31 +1,25 @@
 {% extends "base/base.html" %}
 {% load staticfiles %}
-{% block content %}
-<div class="error-page">
-    <div class="error-content">
-        <table>
-            <tr>
-                <th>
-                <h3>
-                    Oops! It looks like you might be lost.<br />
-                    The requested page<br />
-                    <span id="url-text">"{{ request.build_absolute_uri}}"</span><br />
-                    doesn't exist on this site.<br />
-                    Try one of these links to find what you're looking for
-                </h3>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><a href="{% url 'redcross_help' %}">Help/FAQs</a></li>
-                        <li><a href="{% url 'ims:home' %}">List of recent inventory activity</a></li>
-                        <li><a href="{% url 'ims:sites' %}">List of inventory sites</a></li>
-                        <li><a href="{% url 'ims:products' %}">List of products</a></li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'ims/css/style.css' %}" type="text/css" >
+{% endblock extrastyle %}
+{% block announcement %}
+    <div id="announcement">
+        {% if warningMessage %}
+            <p id="warning-note" class="warningnote">
+                <img class="announcement-close" src="{% static 'base/img/delete.png' %}"></img>
+                <img class="announcement-icon" src="{% static 'base/img/icon_alert.gif' %}"></img>
+                {{ warningMessage | safe }}
+                <ul>
+                    <li><a href="{% url 'redcross_help' %}">Help/FAQs</a></li>
+                    <li><a href="{% url 'ims:home' %}">List of recent inventory activity</a></li>
+                    <li><a href="{% url 'ims:sites' %}">List of inventory sites</a></li>
+                    <li><a href="{% url 'ims:products' %}">List of products</a></li>
+                </ul>
+            </p>
+        {%endif %}
     </div>
-</div>
-{%endblock content %}
+{% endblock announcement %}
+{% block content %}
+{% endblock content %}
