@@ -4,9 +4,9 @@ from django.conf import settings
 from django.contrib import admin
 from . import views
 
-handler400 = 'ims_dev.views.handler400'
-handler404 = 'ims_dev.views.handler404'
-handler500 = 'ims_dev.views.handler500'
+handler400 = 'redcross_wcny.views.handler400'
+handler404 = 'redcross_wcny.views.handler404'
+handler500 = 'redcross_wcny.views.handler500'
 
 urlpatterns = patterns('',
     # Examples:
