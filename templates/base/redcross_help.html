@@ -70,6 +70,9 @@
                     </li>
                     <li>
                         <a href="#edit-product">How do I edit a product's information (possibly to make that irritating red box go away!)?</a>
+                    </li
+                    <li>
+                        <a href="#add-product-picture">How do I add a picture to a product?</a>
                     </li>
                     <li>
                         <a href="#add-product">How do I add a new product?</a>
@@ -181,7 +184,12 @@
                         <li>Page through the list of sites and click on the desired site.  
                         This will take you to the Site Details page.  On the Site Details page you will see 
                         site information on the left and site inventory on the right.</li>
-                        <li>Enter a new quantity for each inventory item you want to edit.</li>
+                        <li>To adjust the inventory directly, click on the Adjust Total Inventory tab.  The current quantity will be shown 
+                        and you can simply enter a new number to reflect the desired quantity.</li>
+                        <li>To add or subtract a given amount from inventory, click on the Add/Subtract Inventory tab.  The current inventory
+                        will be shown with an entry box to the left.  simply enter a positive or negative number in that entry field to add or
+                        subtract that amount from the total inventory.</li>
+                        <li>If desired, multiple inventory items can be adjusted at once before saving.</li>
                         <li>When finished, hit "Save Changes" in the upper right corner of the 
                         inventory list.</li>
                     </ol> 
@@ -346,6 +354,22 @@
                         <li>If required information is missing, you will be prompted to enter it before saving.  
                         Simply entering "none" in the missing information field is sufficient to allow the product to be saved.  
                         It is preferable to enter the correct information if it is available.</li>
+                    </ol> 
+            </li>
+            <li>
+                <a name="add-product-picture"><span class="h4-font">How do I add a picture to a product??</span></a>
+                    <ol>
+                        <li>Select the <a href="{% url 'ims:products' %}">Products</a> menu item</li>
+                        <li>Page through the list of products and click on the desired product.  
+                        This will take you to the Product Details page.</li>
+                        <li>Scroll to the bottom of the product form and find the Picture: entry</li>
+                        <li>If a picture already exists for this product, you will see a link which can be clicked to go to a full page view of that picture.</li>
+                        <li>A new picture can be associated with that product by clicking on the Change: Browse button and selecting a file on your computer.</li>
+                        <li>Once you have selected a picture, you can save the form by clicking the Save button at the upper left.</li>
+                        <li>This will take you to a full page view of the picture.  You can alter the rotation of the picture if desired by 
+                        clicking the Rotate button.  When done adjusting the picture, click the Save button.  This will take you back to the product form 
+                        and you will see a thumbnail image of the newly adjusted picture at the top.</li>
+                        <li>To see the full picture again click the Picture tab.</li>
                     </ol> 
             </li>
             <li>
