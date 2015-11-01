@@ -60,7 +60,10 @@
             {% endblock content%}
         </div>
         <p>
-            <span>site development by Rob Groves, support: <a href="mailto:robert.groves@redcross.org">robert.groves@redcross.org</a></span>
+            <span>site development by {{ adminName }}, support: <a href="mailto:{{ adminEmail }}">{{ adminEmail }}</a></span>
+        </p>
+        <p>
+            Site version: {{ siteVersion }}, IMS version: {{ imsVersion }}
         </p>
     </div>
 </body>
