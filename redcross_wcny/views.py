@@ -1,11 +1,20 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from django.conf import settings
 
 def home(request):
-    return render(request,'base/base.html',{'nav_home':1})
+    return render(request,'base/base.html',{'nav_home':1,
+                                            'adminName':settings.SITE_ADMIN[0],
+                                            'adminEmail':settings.SITE_ADMIN[1],
+                                            'siteVersion':settings.SITE_VERSION,
+                                            'imsVersion':settings.IMS_VERSION,})
 
 def redcross_help(request):
-    return render(request,'base/redcross_help.html',{'nav_help':1})
+    return render(request,'base/redcross_help.html',{'nav_help':1,
+                                            'adminName':settings.SITE_ADMIN[0],
+                                            'adminEmail':settings.SITE_ADMIN[1],
+                                            'siteVersion':settings.SITE_VERSION,
+                                            'imsVersion':settings.IMS_VERSION,})
 
 def handler404(request):
     warningMessage = '''Oops! It looks like you might be lost.<br />
