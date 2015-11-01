@@ -7,12 +7,13 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.core.exceptions import ImproperlyConfigured
 import os
 import json
 import re
+from . import VERSION as SITE_VERSION # used in templates to display site version
+from ims import VERSION as IMS_VERSION # used in templates to display ims version
 from getpass import getuser
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -121,6 +122,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = get_secret('REDCROSS_WCNY_EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_HOST_USER = get_secret('REDCROSS_WCNY_EMAIL_HOST_USER')
+SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = get_secret('REDCROSS_WCNY_EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
@@ -143,9 +145,14 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
                  '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
                  #'ims/templates',
                  ]
+# SITE_ADMIN will display as contact person on each page
+SITE_ADMIN = ('Rob Groves','robert.groves@redcross.org')
+# add other admins if you like to be contacted in case of errors
+ADMINS = (SITE_ADMIN,)
 
-ADMINS = (('Rob','grovesr1@yahoo.com'),)
-MANAGERS = (('Rob','grovesr1@yahoo.com'),)
+SITE_MANAGER = ('Rob Groves','robert.groves@redcross.org')
+# managers get notified of 404 errors and possibly other minor iussues
+MANAGERS = (SITE_MANAGER,)
 EMAIL_SUBJECT_PREFIX = '[REDCROSS-WCNY]'
 
 DJANGO_LOG_FILE=os.path.join(BASE_DIR, 'log/' + getuser()+ '_django.log')
