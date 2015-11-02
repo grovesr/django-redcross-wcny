@@ -1,4 +1,4 @@
-Version 1.2.0:
+11/1/15 Version 1.2.0:
 * 53f2860 fix:fix 404 test to reference 404 handler
 * 8a67393 add admin and version template vars to render contexts, also remove unused vars and replace unused tuple var returns
 * 79e5d36 add template vars for adminName, adminEmail, siteVersion, imsVersion
