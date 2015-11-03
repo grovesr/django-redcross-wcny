@@ -12,8 +12,14 @@ from django.core.exceptions import ImproperlyConfigured
 import os
 import json
 import re
-from . import VERSION as SITE_VERSION # used in templates to display site version
-from ims import VERSION as IMS_VERSION # used in templates to display ims version
+try:
+    from . import VERSION as SITE_VERSION # used in templates to display site version
+except ImportError:
+    SITE_VERSION = ''
+try:
+    from ims import VERSION as IMS_VERSION # used in templates to display ims version
+except ImportError:
+    IMS_VERSION=''
 from getpass import getuser
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
