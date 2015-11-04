@@ -14,10 +14,12 @@ import json
 import re
 try:
     from . import VERSION as SITE_VERSION # used in templates to display site version
+    SITE_VERSION = SITE_VERSION[0]
 except ImportError:
     SITE_VERSION = ''
 try:
     from ims import VERSION as IMS_VERSION # used in templates to display ims version
+    IMS_VERSION=IMS_VERSION[0]
 except ImportError:
     IMS_VERSION=''
 from getpass import getuser

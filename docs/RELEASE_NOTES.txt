@@ -4,3 +4,5 @@
 * 79e5d36 add template vars for adminName, adminEmail, siteVersion, imsVersion
 * d64d784 add settings for VERSION, SITE_VERSION, and SERVER_EMAIL
 * 7583a40 feat:add VERSION so we have a single source of version information
+10/11/2015 Version 1.3.0:
+* b6b117c (HEAD, master) feat: add date and comments to version information
