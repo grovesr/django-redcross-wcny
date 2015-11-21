@@ -140,6 +140,8 @@ MEDIA_ROOT = '/home3/ulsterc3/public_html/subdomains/arc/wcny/uploads'
 MEDIA_URL = '/uploads/'
 STATIC_URL = '/static/'
 
+TEMP_DIR = '/tmp'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     '/home3/ulsterc3/Rob/python27/lib/python2.7/site-packages/ims/static',
