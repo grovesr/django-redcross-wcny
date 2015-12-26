@@ -198,6 +198,8 @@ td.cell-frame, div.cell-frame {
 
 div.faq-list {
     width:800px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 a.pkt-link, .breadcrumb a {

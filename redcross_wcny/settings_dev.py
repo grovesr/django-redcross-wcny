@@ -45,6 +45,7 @@ def get_secret(setting, secrets=secrets):
 
 PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
+PAGE_SIZE = 20
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret('REDCROSS_WCNY_SECRET')
