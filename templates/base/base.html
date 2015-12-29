@@ -21,17 +21,20 @@
             <span id="user-management">
                 {% block user-management %}
                     {% if user.is_authenticated %}
-                         welcome: <strong>{{ user.username }}.</strong>:
+                         welcome: <strong>{{ user.username }}</strong>&nbsp:
                          {% if user.has_usable_password %}
-                            <a href="{% url 'admin:password_change' %}">Change password / </a>
+                            <a href="{% url 'password_change' %}?next={{ request.get_full_path }}">Change password / </a>
                          {% endif %}
                          <a href="{% url 'logout' %}?next=/">
                              Logout
                          </a>
                      {% else %}
-                        welcome: 
-                        <a href="{% url 'login' %}?next=/">
-                              Login
+                        welcome:
+                        <a href="{% url 'login' %}">
+                              Login / 
+                         </a>
+                         <a href="{% url 'password_reset' %}">
+                             Forgot password
                          </a>
                     {% endif %}
                 {% endblock user-management %}

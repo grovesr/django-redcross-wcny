@@ -52,8 +52,6 @@ SECRET_KEY = get_secret('REDCROSS_WCNY_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = False
-
 #ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['.arcwcny.ulstercorpsdev.org',
                  'localhost',
@@ -143,7 +141,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL='/accounts/login'
+LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL = '/'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    },
+]
 #
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = get_secret('REDCROSS_WCNY_EMAIL_HOST')

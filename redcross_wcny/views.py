@@ -1,6 +1,8 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.conf import settings
+from django.contrib.auth import views as auth_views
+from re import match
 try:
     adminName = settings.SITE_ADMIN[0]
 except AttributeError:
@@ -17,6 +19,7 @@ try:
     imsVersion = settings.IMS_VERSION
 except AttributeError:
     imsVersion=''
+
 def home(request):
     return render(request,'base/base.html',{'nav_home':1,
                                             'adminName':adminName,
@@ -63,3 +66,97 @@ def handler400(request):
                                   context_instance=RequestContext(request))
     response.status_code = 400
     return response
+
+def login(request, *args, **kwargs):
+    template_response = auth_views.login(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
+def password_change(request, *args, **kwargs):
+    post_change_redirect = request.GET.get('next',None)
+    kwargs['post_change_redirect'] = post_change_redirect
+    request.session['infoMessage'] = 'Successfully changed password'
+    template_response = auth_views.password_change(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    print template_response.context_data['form']['new_password1']
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
+def password_change_done(request, *args, **kwargs):
+    template_response = auth_views.password_change_done(request, *args, 
+                                                        **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
+def password_reset(request, *args, **kwargs):
+    template_response = auth_views.password_reset(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
+def password_reset_done(request, *args, **kwargs):
+    template_response = auth_views.password_reset_done(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
+def password_reset_confirm(request, *args, **kwargs):
+    post_reset_redirect = settings.LOGIN_URL
+    kwargs['post_reset_redirect'] = post_reset_redirect
+    request.session['infoMessage'] = 'Successfully changed password'
+    template_response = auth_views.password_reset_confirm(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    if match('unsuccessful',template_response.context_data['title']):
+        request.session['errorMessage'] = template_response.context_data['title']
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
+def password_reset_complete(request, *args, **kwargs):
+    template_response = auth_views.password_reset_complete(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    template_response.context_data.update({
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
