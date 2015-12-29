@@ -264,3 +264,66 @@ input[type="submit"] {
     font-size:0.8em;
     color:#F00;
 }
+
+.announcement-icon {
+    float:left;
+    margin-left:-20px;
+    margin-right: 10px;
+}
+
+.announcement-close {
+    float:right;
+    margin:0px;
+    width:1.3em;
+    height:1.3em;
+    cursor:pointer;
+}
+
+#announcement {
+    text-align:center;
+    width: 28em;
+    min-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:5px;
+    text-align:left;
+    word-wrap: break-word;
+}
+
+.errornote, .warningnote, .infonote {
+    font-size: 12px !important;
+    font-weight: bold;
+    display: block;
+    padding: 5px 5px 4px 25px;
+    margin: 0px 0px 3px;
+    border-radius: 5px;
+}
+
+.errornote {
+    color: #000;
+    border: 1px solid #C22;
+    background:#FFEFEF;
+}
+
+#error-note i.fa-minus-circle {
+    color:#a44;
+}
+.warningnote {
+    border: 1px solid #CC2;
+    color: #000;
+    background:#FFA;
+}
+
+#warning-note i.fa-exclamation-circle {
+    color:#aa4;
+}
+
+.infonote {
+    border: 1px solid #2C2;
+    color: #000;
+    background:#EFFFEF;
+}
+
+#info-note i.fa-info-circle {
+    color:#4a4;
+}

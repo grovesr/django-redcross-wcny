@@ -15,4 +15,5 @@
 28/12/2015 Version 1.5.0:
 * 3338ef7 (HEAD, master) feat: Update to Django 1.9 from 1.7
 29/12/2015 Version 1.5.1:
-* 6b9ebed (HEAD, master) feat: Add password management features
+* b0d3a51 (HEAD, master) fix: Add session messages to registration views/templates
+* 83f651c (origin/master) feat: Add password management features
