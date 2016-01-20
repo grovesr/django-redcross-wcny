@@ -18,3 +18,5 @@
 * 5edd502 (HEAD, master) Add DEFAULT_FROM_EMAIL to settings. Add Forgot Password link to login form.
 * df4a372 (origin/master) fix: Add session messages to registration views/templates
 * 83f651c feat: Add password management features
+19/01/2016 Version 1.5.2:
+* f2ff2a0 (HEAD, master) fix: logout issue with non-admin users

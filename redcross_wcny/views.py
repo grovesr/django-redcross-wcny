@@ -96,6 +96,22 @@ def handler400(request):
     response.status_code = 400
     return response
 
+def logout(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
+    template_response = auth_views.logout(request, *args, **kwargs)
+    if template_response.status_code == 302:
+        # if we redirect, no need to change the response data
+        return template_response
+    template_response.context_data.update({
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
+                                'adminName':adminName,
+                                'adminEmail':adminEmail,
+                                'siteVersion':siteVersion,
+                                'imsVersion':imsVersion,})
+    return template_response
+
 def login(request, *args, **kwargs):
     errorMessage, warningMessage, infoMessage = get_session_messages(request)
     template_response = auth_views.login(request, *args, **kwargs)
