@@ -37,6 +37,7 @@ urlpatterns = [
         name='password_reset_complete'),
     url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^ims/$',views.home,name='home'),
     url(r'^ims/',include('ims.urls',namespace='ims')),
     url(r'^$', views.home,name='home'),
     url(r'^redcross_help$',views.redcross_help, name='redcross_help')

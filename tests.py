@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
 from redcross_wcny import urls
-from redcross_wcny.views import handler400, handler404, handler500
+from redcross_wcny.views import handler400, handler404, handler500, home
 import logging
 
 logging.disable(logging.CRITICAL)
@@ -58,3 +58,21 @@ class ServerErrorViewTests(TestCase):
         self.assertIn('Uh oh! It looks like there was some kind of server error!',
                       response.content,
                       'server_error view didn''t generate the correct message when presented with an Exception')
+
+
+class HomeViewTests(TestCase):
+    """
+    home view tests
+    """
+        
+    def test_home_view(self):
+        print 'running HomeViewTests.test_home_view... '
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.resolver_match.func, home)
+        
+    def test_home_view_with_ims(self):
+        print 'running HomeViewTests.test_home_view_with_ims... '
+        response = self.client.get('/ims/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.resolver_match.func, home)
