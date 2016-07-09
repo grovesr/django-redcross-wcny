@@ -155,12 +155,13 @@ AUTH_PASSWORD_VALIDATORS = [
 #
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = get_secret('REDCROSS_WCNY_EMAIL_HOST')
-EMAIL_PORT = 587
+EMAIL_PORT = int(get_secret('REDCROSS_WCNY_EMAIL_PORT'))
 EMAIL_HOST_USER = get_secret('REDCROSS_WCNY_EMAIL_HOST_USER')
-SERVER_EMAIL = EMAIL_HOST_USER
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = get_secret('REDCROSS_WCNY_EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = eval(get_secret('REDCROSS_WCNY_EMAIL_USE_TLS'))
+EMAIL_USE_SSL = eval(get_secret('REDCROSS_WCNY_EMAIL_USE_SSL'))
+SERVER_EMAIL = get_secret('REDCROSS_WCNY_EMAIL_FROM_USER')
+DEFAULT_FROM_EMAIL = SERVER_EMAIL
 
 
 # Static files (CSS, JavaScript, Images)
@@ -174,11 +175,11 @@ STATIC_URL = '/static/'
 TEMP_DIR = '/tmp'
 
 # SITE_ADMIN will display as contact person on each page
-SITE_ADMIN = ('Rob Groves','robert.groves@redcross.org')
+SITE_ADMIN = ('Rob Groves','robgroves0@gmail.com')
 # add other admins if you like to be contacted in case of errors
 ADMINS = (SITE_ADMIN,)
 
-SITE_MANAGER = ('Rob Groves','robert.groves@redcross.org')
+SITE_MANAGER = ('Rob Groves','robgroves0@gmail.com')
 # managers get notified of 404 errors and possibly other minor iussues
 MANAGERS = (SITE_MANAGER,)
 EMAIL_SUBJECT_PREFIX = '[REDCROSS-WCNY]'
