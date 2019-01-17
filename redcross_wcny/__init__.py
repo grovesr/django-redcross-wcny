@@ -10,4 +10,5 @@
 #VERSION=('1.5.1','29/12/2015','feat: Add password management features')
 #VERSION=('1.5.2','29/12/2015','fix: logout issue with non-admin users')
 #VERSION=('1.5.3','22/01/2016','Remove IMS page, its not used.  Redirect to Home if IMS page requested.')
-VERSION=('1.5.4','09/07/2016','Replace robert.groves@redcross.org with robgroves0@gmail.com. Add secret settings for e-mail config.')
+#VERSION=('1.5.4','09/07/2016','Replace robert.groves@redcross.org with robgroves0@gmail.com. Add secret settings for e-mail config.')
+VERSION=('1.5.5', '01/16/2019', 'fix: change http:// to https:// when loading jquery to avoid mixed active content warnings')

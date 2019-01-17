@@ -24,3 +24,5 @@
 * 6d0008d (HEAD, master) feat: Remove IMS page, it's not used.  Redirect to Home if IMS page requested.
 07/09/2016 Version 1.5.4:
 fix: Replace robert.groves@redcross.org with robgroves0@gmail.com. Add secret settings for e-mail config.
+01/16/2019 Version 1.5.5:
+fix: change http:// to https:// when loading jquery to avoid mixed active content warnings
